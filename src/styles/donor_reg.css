@@ -1,0 +1,511 @@
+/* Global vars for sticky header height (tweak if your header differs) */
+:root {
+  --header-height: 90px;
+}
+@media (max-width: 768px) {
+  :root { --header-height: 72px; }
+}
+
+/* Make anchors/scrolling stop below the header */
+html { scroll-padding-top: var(--header-height); }
+
+/* ---- Page layout (wrap your page content in <main class="donation-page with-sticky-header">) ---- */
+.donation-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5f5; /* keeps background consistent behind header/footer */
+}
+
+/* Add top space so the fixed/sticky header doesn't overlap step 1-4 */
+.donation-page.with-sticky-header {
+  padding-top: var(--header-height);
+}
+
+/* ---- Main content area (pushes footer to the bottom) ---- */
+.donation-form-container {
+  flex: 1; /* lets footer sit at bottom */
+  background-color: #f5f5f5;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative; /* helps if header has z-index; content stays above page bg */
+  z-index: 1;
+}
+
+/* Progress Steps */
+.progress-steps {
+  display: flex;
+  background: #f8f9fa;
+  padding: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.step {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -50%;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: #e9ecef;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.step.active:not(:last-child)::after {
+  background: #007bff;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e9ecef;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+  margin-right: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.step.active .step-number {
+  background: #007bff;
+  color: white;
+}
+
+.step-label {
+  font-size: 14px;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: #007bff;
+}
+
+/* Form Styles */
+.donation-form {
+  padding: 30px;
+}
+
+.form-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 12px 16px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #adb5bd;
+}
+
+/* Payment Method */
+.payment-method {
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.payment-option.selected {
+  border-color: #007bff;
+  background: #f8f9ff;
+}
+
+.payment-icon {
+  font-size: 20px;
+  margin-right: 12px;
+}
+
+/* Donation Plan */
+.donation-type {
+  margin-bottom: 20px;
+}
+
+.donation-type label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.toggle-buttons {
+  display: flex;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.toggle-buttons button {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  background: white;
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.toggle-buttons button.active {
+  background: #007bff;
+  color: white;
+}
+
+.plan-description {
+  font-size: 12px;
+  color: #6c757d;
+  margin-bottom: 20px;
+}
+
+.cause-preferences label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #495057;
+  cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+}
+
+/* Notification Preferences */
+.notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item span {
+  font-size: 14px;
+  color: #495057;
+  font-weight: 500;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Submit Button */
+.submit-button {
+  width: 100%;
+  padding: 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0; /* shorthand for top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* stays above header/footer */
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 40px 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-icon {
+  margin-bottom: 20px;
+}
+
+.checkmark {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #28a745;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.modal-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.donor-info {
+  margin-bottom: 30px;
+}
+
+.donor-id-label {
+  font-size: 12px;
+  color: #6c757d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.donor-id {
+  font-size: 16px;
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.registration-date {
+  font-size: 14px;
+  color: #495057;
+}
+
+.download-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.download-button:hover {
+  background: #0056b3;
+}
+
+.download-icon {
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .donation-form-container {
+    padding: 10px;
+  }
+
+  .donation-form {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .progress-steps {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .step {
+    justify-content: flex-start;
+  }
+
+  .step:not(:last-child)::after {
+    display: none;
+  }
+
+  .toggle-buttons {
+    flex-direction: column;
+  }
+
+  .checkbox-group {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 18px;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 10px 12px;
+  }
+
+  .submit-button {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .modal-content {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+
+  .modal-title {
+    font-size: 16px;
+  }
+
+  .checkmark {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .download-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}

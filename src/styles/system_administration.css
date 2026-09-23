@@ -1,0 +1,435 @@
+/* Container */
+.sa-container {
+  min-height: 100vh;
+  background: #f0f4f7;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Header */
+.sa-header {
+  background: linear-gradient(135deg, #d4e7f3 0%, #e8f2f7 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.sa-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+/* User Management Section */
+.sa-user-management {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sa-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.sa-section-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.sa-header-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.sa-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8f9fa;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 0.625rem 1rem;
+}
+
+.sa-search svg {
+  color: #888;
+  flex-shrink: 0;
+}
+
+.sa-search-input {
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 0.9375rem;
+  color: #333;
+  min-width: 200px;
+}
+
+.sa-search-input::placeholder {
+  color: #aaa;
+}
+
+.sa-add-button {
+  background: #2e6c8a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.625rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.sa-add-button:hover {
+  background: #235566;
+}
+
+/* Table */
+.sa-table-wrapper {
+  overflow-x: auto;
+}
+
+.sa-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sa-table thead {
+  background: #f8f9fa;
+}
+
+.sa-table th {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.sa-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.2s;
+}
+
+.sa-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.sa-table td {
+  padding: 1.125rem 1.25rem;
+  font-size: 0.9375rem;
+  color: #333;
+}
+
+.sa-action-buttons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.sa-icon-button {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.sa-edit {
+  color: #2e6c8a;
+}
+
+.sa-edit:hover {
+  background: #e3f2fd;
+}
+
+.sa-delete {
+  color: #d32f2f;
+}
+
+.sa-delete:hover {
+  background: #ffebee;
+}
+
+/* Tools Section */
+.sa-tools {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.sa-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.sa-tool-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.sa-tool-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sa-icon-backup {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.sa-icon-export {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.sa-tool-content {
+  flex: 1;
+}
+
+.sa-tool-title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.375rem;
+}
+
+.sa-tool-meta {
+  font-size: 0.875rem;
+  color: #777;
+  margin: 0;
+}
+
+.sa-tool-button {
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sa-button-blue {
+  background: #1976d2;
+  color: #ffffff;
+}
+
+.sa-button-blue:hover {
+  background: #1565c0;
+}
+
+.sa-button-green {
+  background: #388e3c;
+  color: #ffffff;
+}
+
+.sa-button-green:hover {
+  background: #2e7d32;
+}
+
+/* Modal Styles */
+.sa-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.sa-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.sa-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.sa-modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.sa-modal-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: #666;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.sa-modal-close:hover {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.sa-form-group {
+  margin-bottom: 1.25rem;
+}
+
+.sa-form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.sa-form-group input,
+.sa-form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  color: #333;
+  background: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.sa-form-group input:focus,
+.sa-form-group select:focus {
+  outline: none;
+  border-color: #2e6c8a;
+}
+
+.sa-form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.sa-btn-cancel,
+.sa-btn-submit {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sa-btn-cancel {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.sa-btn-cancel:hover {
+  background: #e0e0e0;
+}
+
+.sa-btn-submit {
+  background: #2e6c8a;
+  color: #ffffff;
+}
+
+.sa-btn-submit:hover {
+  background: #235566;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .sa-container {
+    padding: 2.5rem 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sa-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .sa-section-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .sa-header-actions {
+    flex-direction: column;
+  }
+
+  .sa-search {
+    width: 100%;
+  }
+
+  .sa-search-input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .sa-add-button {
+    width: 100%;
+  }
+
+  .sa-tool-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .sa-tool-icon {
+    margin: 0 auto;
+  }
+
+  .sa-tool-button {
+    width: 100%;
+  }
+}

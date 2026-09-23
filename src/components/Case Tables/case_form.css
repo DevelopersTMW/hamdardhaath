@@ -1,0 +1,112 @@
+/* Card container */
+.create-case-form {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.create-case-form h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+/* Inputs */
+.form-group { margin-bottom: 16px; }
+
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.form-input,
+.form-textarea,
+.create-case-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.create-case-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-textarea { resize: vertical; }
+
+/* Upload box */
+.upload-box {
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+  background: #fafafa;
+  cursor: pointer;
+  transition: border-color .2s, color .2s, background .2s;
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-box:hover,
+.upload-box:focus-within {
+  border-color: #2563eb;
+  color: #2563eb;
+  background: #f8fbff;
+}
+
+.upload-empty p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.upload-icon {
+  width: 40px;
+  height: 40px;
+  fill: currentColor;
+  opacity: .85;
+}
+
+.upload-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Actions */
+.form-actions { margin-top: 18px; }
+
+.btn.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn.btn-primary:hover { background-color: #1e40af; }

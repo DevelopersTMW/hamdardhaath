@@ -1,0 +1,136 @@
+/* ========== Layout (Header / Main / Footer) ========== */
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+:root {
+  /* adjust these if your header is taller/shorter */
+  --header-h: 72px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 64px;
+  }
+}
+
+.membership-main {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 3vw, 32px);
+  padding-top: calc(var(--header-h) + 16px); /* 👈 pushes content below header */
+  background: #f7f7fb;
+}
+
+/* ========== Card Wrapper ========== */
+.card-wrap {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ========== Card ========== */
+.card {
+  width: 100%;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Header band */
+.card-header {
+  background: linear-gradient(135deg, #2d6cdf, #7b61ff);
+  padding: clamp(14px, 2.4vw, 18px) clamp(16px, 2.6vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-pill {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-size: clamp(14px, 1.6vw, 16px);
+  text-transform: uppercase;
+}
+
+/* ========== Card Body ========== */
+.card-body {
+  padding: clamp(16px, 3vw, 28px);
+  display: grid;
+  gap: clamp(16px, 2.2vw, 24px);
+}
+
+/* Profile row */
+.profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(14px, 2vw, 20px);
+  align-items: center;
+}
+.avatar {
+  width: clamp(80px, 16vw, 120px);
+  height: clamp(80px, 16vw, 120px);
+  object-fit: cover;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+.identity {
+  min-width: 0;
+}
+.member-name {
+  margin: 0 0 6px 0;
+  font-size: clamp(20px, 2.8vw, 24px);
+  color: #1f2335;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.member-id {
+  margin: 0;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #6b7280;
+}
+.member-id span {
+  color: #374151;
+  font-weight: 600;
+}
+
+/* QR section */
+.qr-wrap {
+  display: flex;
+  justify-content: center;
+  padding: clamp(8px, 2.2vw, 12px);
+  background: #fafbff;
+  border: 1px dashed rgba(45, 108, 223, 0.25);
+  border-radius: 16px;
+}
+.qr {
+  width: clamp(180px, 40vw, 280px);
+  height: auto;
+  display: block;
+}
+
+/* ========== Responsiveness ========== */
+@media (min-width: 768px) {
+  .card-body {
+    gap: 28px;
+  }
+  .profile {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card-wrap {
+    max-width: 820px;
+  }
+}
