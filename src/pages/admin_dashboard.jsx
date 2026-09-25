@@ -22,7 +22,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     // Fetch dashboard statistics from backend
-    fetch('https://khidmat.hamdardhaath.org/api/admin/stats')
+    fetch('https://app.hamdardhaath.org/api/admin/stats')
       .then(res => res.json())
       .then(data => {
         if (data.success) {

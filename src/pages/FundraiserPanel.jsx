@@ -19,7 +19,7 @@ const FundraiserPanel = () => {
   const fetchFundraisers = async () => {
     try {
       setLoading(true);
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/fundraisers');
+      const response = await fetch('https://app.hamdardhaath.org/api/fundraisers');
       const data = await response.json();
       
       if (data.success) {
@@ -51,7 +51,7 @@ const FundraiserPanel = () => {
 
     try {
       setSubmitting(true);
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/fundraisers', {
+      const response = await fetch('https://app.hamdardhaath.org/api/fundraisers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ const FundraiserPanel = () => {
     }
 
     try {
-      const response = await fetch(`https://khidmat.hamdardhaath.org/api/fundraisers/${id}`, {
+      const response = await fetch(`https://app.hamdardhaath.org/api/fundraisers/${id}`, {
         method: 'DELETE',
       });
 

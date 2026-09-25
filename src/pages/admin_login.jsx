@@ -111,7 +111,7 @@ export default function AdminLogin() {
     try {
       setLoading(true)
 
-      const res = await fetch("https://khidmat.hamdardhaath.org/api/admin/login", {
+      const res = await fetch("https://app.hamdardhaath.org/api/admin/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import '../styles/donor_login.css';
 
-const API = 'https://khidmat.hamdardhaath.org/api';
+const API = 'https://app.hamdardhaath.org/api';
 
 const formatDate = (d) => {
   if (!d) return '';

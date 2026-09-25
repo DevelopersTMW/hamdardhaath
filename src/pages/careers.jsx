@@ -6,7 +6,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import "../styles/careers.css"
 
-const API = 'https://khidmat.hamdardhaath.org/api';
+const API = 'https://app.hamdardhaath.org/api';
 
 export default function Careers() {
   const navigate = useNavigate();

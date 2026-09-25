@@ -27,7 +27,7 @@ const CheckoutForm = ({ amount, frequency, cause, campaignData }) => {
 
     try {
       // 1. Ask backend for a Stripe Payment Intent
-      const { data: { clientSecret } } = await axios.post('https://khidmat.hamdardhaath.org/api/donations/create-payment-intent', {
+      const { data: { clientSecret } } = await axios.post('https://app.hamdardhaath.org/api/donations/create-payment-intent', {
         amount: amount
       });
 
@@ -47,7 +47,7 @@ const CheckoutForm = ({ amount, frequency, cause, campaignData }) => {
 
       // 3. If successful, tell backend to save to SQLite database
       if (paymentResult.paymentIntent.status === 'succeeded') {
-        await axios.post('https://khidmat.hamdardhaath.org/api/donations/save-donation', {
+        await axios.post('https://app.hamdardhaath.org/api/donations/save-donation', {
           amount,
           frequency,
           fullName,

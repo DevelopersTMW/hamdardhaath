@@ -272,7 +272,7 @@ const VolunteerForm = () => {
       };
 
       // Send registration request to backend
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/volunteer/register', {
+      const response = await fetch('https://app.hamdardhaath.org/api/volunteer/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

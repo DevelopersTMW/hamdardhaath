@@ -1,4 +1,4 @@
-:root {
+.donor-login-page {
   --bg: #f8fafc;
   --panel: #ffffff;
   --border: #e5e7eb;
@@ -7,227 +7,267 @@
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --ring: #bfdbfe;
-}
+  --header-h: var(--hh-header-height, 128px);
 
-.page {
   min-height: 100vh;
   background: var(--bg);
-  display: grid;
-  grid-template-rows: auto 1fr auto; /* header, content, footer */
-}
-
-/* center the card */
-.login-main {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 1rem;
+  flex-direction: column;
 }
 
-/* card */
-.login-card  {
+.donor-login-page *,
+.donor-login-page *::before,
+.donor-login-page *::after {
+  box-sizing: border-box;
+}
+
+/* Main area, pushed below fixed header */
+.donor-login-page .login-main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: calc(var(--header-h) + 2rem) 1rem 3rem;
+}
+
+/* Card */
+.donor-login-page .login-card {
   width: 100%;
-  max-width: 28rem; /* ~448px */
+  max-width: 28rem;
   background: var(--panel);
   border: 1px solid var(--border);
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
-.login-card-header {
+.donor-login-page .login-card-header {
   text-align: center;
-  padding: 24px;
+  padding: 28px 24px 24px;
   border-bottom: 1px solid var(--border);
 }
 
-.lock-circle {
-  width: 48px;
-  height: 48px;
-  margin: 0 auto 12px;
-  border-radius: 9999px;
-  background: #dbeafe; /* blue-100 */
+.donor-login-page .lock-circle {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #dbeafe;
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2563eb;      /* icon color */
 }
 
-.login-title {
+.donor-login-page .lock-circle svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.donor-login-page .login-title {
   margin: 0;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
 }
 
-.login-subtitle {
-  margin: 4px 0 0;
+.donor-login-page .login-subtitle {
+  margin: 6px 0 0;
   color: var(--muted);
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
-/* content */
-.login-card-content {
+/* Content */
+.donor-login-page .login-card-content {
   padding: 24px;
-  display: grid;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 
-.form-group {
-  display: grid;
-  gap: .375rem;
+.donor-login-page .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin: 0;
 }
 
-.label {
-  font-size: .875rem;
+.donor-login-page .label {
+  display: block;
+  margin: 0;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--text);
+  position: static;
 }
 
-/* inputs with icons */
-.input-wrapper {
+/* Input + icons */
+.donor-login-page .input-wrapper {
   position: relative;
+  width: 100%;
 }
 
-.icon-left,
-.icon-right {
+.donor-login-page .input-wrapper .icon-left,
+.donor-login-page .input-wrapper .icon-right {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  color: #9ca3af; /* gray-400 */
+  color: #9ca3af;
+  z-index: 2;
 }
 
-.icon-left { left: 12px; }
-.icon-right { right: 12px; }
+.donor-login-page .input-wrapper .icon-left {
+  left: 14px;
+  pointer-events: none;
+}
 
-.btn-icon {
+.donor-login-page .input-wrapper .icon-right {
+  right: 12px;
+}
+
+.donor-login-page .input-wrapper .btn-icon {
   border: none;
   background: transparent;
-  padding: 0;
+  padding: 4px;
   margin: 0;
   cursor: pointer;
   line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.input {
+.donor-login-page .input-wrapper input.input {
   width: 100%;
+  height: 46px;
+  margin: 0;
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 10px 12px 10px 38px; /* left space for icon */
-  font-size: .95rem;
-  transition: box-shadow .15s ease, border-color .15s ease;
+  padding: 0 14px 0 44px;
+  font-size: 0.95rem;
+  color: var(--text);
   background: #fff;
+  box-shadow: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.input.has-right { padding-right: 38px; }
+.donor-login-page .input-wrapper input.input.has-right {
+  padding-right: 44px;
+}
 
-.input:focus {
+.donor-login-page .input-wrapper input.input:focus {
   outline: none;
-  box-shadow: 0 0 0 3px var(--ring); /* focus ring */
-  border-color: #93c5fd;            /* blue-300 */
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px var(--ring);
 }
 
-/* button */
-.login-btn-primary {
+/* Error */
+.donor-login-page .error-text {
+  margin: 0;
+  color: #dc2626;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* Button */
+.donor-login-page .login-btn-primary {
   width: 100%;
+  height: 46px;
   border: 0;
   border-radius: 8px;
-  padding: 10px 16px;
-  background: var(--primary);
-  background-color: #2563eb ;
+  background-color: var(--primary);
   color: #fff;
   font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background .15s ease, transform .02s ease;
-  display: inline-flex;       
-  justify-content: center;  
-  align-items: center;  
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.15s ease, transform 0.02s ease;
 }
 
-/* .btn-primary:hover { background: var(--primary-hover); }
-.btn-primary:active { transform: translateY(1px); } */
-
-.login-btn-primary:hover {
+.donor-login-page .login-btn-primary:hover {
   background-color: var(--primary-hover);
 }
 
-.login-btn-primary:active {
+.donor-login-page .login-btn-primary:active {
   transform: translateY(1px);
 }
 
-
-/* links */
-.links {
-  text-align: center;
-  display: grid;
-  gap: .25rem;
+.donor-login-page .login-btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
-.link {
+/* Links */
+.donor-login-page .links {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.donor-login-page .link {
   color: var(--primary);
-  font-size: .875rem;
+  font-size: 0.875rem;
   text-decoration: none;
 }
-.link:hover { text-decoration: underline; }
 
-.muted { color: var(--muted); font-size: .875rem; }
+.donor-login-page .link:hover {
+  text-decoration: underline;
+}
 
+.donor-login-page .login-muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .donor-login-page .login-main {
+    padding: calc(var(--header-h) + 1.5rem) 1rem 2.5rem;
+  }
+  .donor-login-page .login-card-content {
+    padding: 20px;
+    gap: 0.95rem;
+  }
+}
 
 @media (max-width: 380px) {
-  .login-main {
-    padding: 2rem .75rem;
-  }
-  .login-card {
+  .donor-login-page .login-card {
     border-radius: 10px;
   }
-  .login-title {
+  .donor-login-page .login-title {
     font-size: 1.25rem;
   }
-  .login-subtitle {
-    font-size: .9rem;
-  }
-  .input {
-    font-size: .9rem;
-    padding: 9px 10px 9px 36px;
-  }
-  .btn-primary {
-    padding: 12px 14px;
-    font-size: .95rem;
+  .donor-login-page .input-wrapper input.input {
+    font-size: 0.9rem;
+    padding-left: 40px;
   }
 }
 
-/* Typical mobile (portrait) */
-@media (max-width: 640px) {
-  .login-main {
-    padding: 2.5rem 1rem;
-  }
-  .login-card-content {
-    gap: .875rem;
-    padding: 20px;
-  }
-}
-
-/* Tablets and up */
 @media (min-width: 768px) {
-  .login-card {
-    max-width: 30rem; /* 480px */
+  .donor-login-page .login-card {
+    max-width: 30rem;
   }
 }
 
-/* Large screens */
 @media (min-width: 1024px) {
-  .login-card {
-    max-width: 32rem; /* 512px */
+  .donor-login-page .login-card {
+    max-width: 32rem;
   }
-  .login-title {
+  .donor-login-page .login-title {
     font-size: 1.6rem;
   }
 }
 
-/* Accessibility: reduce motion */
 @media (prefers-reduced-motion: reduce) {
-  .btn-primary,
-  .input {
+  .donor-login-page .login-btn-primary,
+  .donor-login-page .input-wrapper input.input {
     transition: none;
   }
 }

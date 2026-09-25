@@ -3,7 +3,7 @@ import { X, Save, Bell, Search, AlertTriangle, Plus, Trash2, Edit2, Mail, Phone,
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
-const API = 'https://khidmat.hamdardhaath.org/api';
+const API = 'https://app.hamdardhaath.org/api';
 
 const getVolunteerLevel = (hours) => {
   if (hours >= 80) return { level: 3, label: 'Gold', color: '#f59e0b' };

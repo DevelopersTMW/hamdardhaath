@@ -76,7 +76,7 @@ const DonationForm = () => {
 
   try {
     // 3️⃣ Send to backend
-    const res = await fetch("https://khidmat.hamdardhaath.org/api/donor/register", {
+    const res = await fetch("https://app.hamdardhaath.org/api/donor/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -27,8 +27,8 @@ export default function SystemAdministration() {
     try {
       setLoading(true);
       const url = search 
-        ? `https://khidmat.hamdardhaath.org/api/admin/all?search=${encodeURIComponent(search)}`
-        : 'https://khidmat.hamdardhaath.org/api/admin/all';
+        ? `https://app.hamdardhaath.org/api/admin/all?search=${encodeURIComponent(search)}`
+        : 'https://app.hamdardhaath.org/api/admin/all';
       
       const response = await fetch(url);
       const data = await response.json();
@@ -60,7 +60,7 @@ export default function SystemAdministration() {
     e.preventDefault();
     
     try {
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/admin/create', {
+      const response = await fetch('https://app.hamdardhaath.org/api/admin/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export default function SystemAdministration() {
         delete updateData.password;
       }
       
-      const response = await fetch(`https://khidmat.hamdardhaath.org/api/admin/${editingAdmin.admin_id}`, {
+      const response = await fetch(`https://app.hamdardhaath.org/api/admin/${editingAdmin.admin_id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -125,7 +125,7 @@ export default function SystemAdministration() {
     }
     
     try {
-      const response = await fetch(`https://khidmat.hamdardhaath.org/api/admin/${adminId}`, {
+      const response = await fetch(`https://app.hamdardhaath.org/api/admin/${adminId}`, {
         method: 'DELETE',
       });
       
@@ -145,7 +145,7 @@ export default function SystemAdministration() {
 
   const handleBackup = async () => {
     try {
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/admin/backup', {
+      const response = await fetch('https://app.hamdardhaath.org/api/admin/backup', {
         method: 'POST',
       });
       
@@ -164,7 +164,7 @@ export default function SystemAdministration() {
 
   const handleExport = async () => {
     try {
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/admin/export', {
+      const response = await fetch('https://app.hamdardhaath.org/api/admin/export', {
         method: 'POST',
       });
       

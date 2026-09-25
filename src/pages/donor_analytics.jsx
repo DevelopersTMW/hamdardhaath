@@ -98,7 +98,7 @@ const DonorDashboard = () => {
   useEffect(() => {
     const fetchAnalytics = async () => {
       try {
-        const response = await fetch('https://khidmat.hamdardhaath.org/api/analytics/donor-dashboard');
+        const response = await fetch('https://app.hamdardhaath.org/api/analytics/donor-dashboard');
         const result = await response.json();
         if (result.success) {
           setAllDonors(result.data);

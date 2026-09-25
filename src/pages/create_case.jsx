@@ -31,7 +31,7 @@ export default function CreateCase() {
   }, []);
 
   const fetchStats = () => {
-    fetch('https://khidmat.hamdardhaath.org/api/cases/stats')
+    fetch('https://app.hamdardhaath.org/api/cases/stats')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -54,7 +54,7 @@ export default function CreateCase() {
   };
 
   const fetchCases = () => {
-    fetch('https://khidmat.hamdardhaath.org/api/cases')
+    fetch('https://app.hamdardhaath.org/api/cases')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -75,7 +75,7 @@ export default function CreateCase() {
   };
 
   const fetchCauses = () => {
-    fetch('https://khidmat.hamdardhaath.org/api/cases/causes')
+    fetch('https://app.hamdardhaath.org/api/cases/causes')
       .then(res => res.json())
       .then(data => {
         if (data.success) {
@@ -118,7 +118,7 @@ export default function CreateCase() {
     }
 
     try {
-      const response = await fetch('https://khidmat.hamdardhaath.org/api/cases', {
+      const response = await fetch('https://app.hamdardhaath.org/api/cases', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -165,7 +165,7 @@ export default function CreateCase() {
     }
 
     try {
-      const response = await fetch(`https://khidmat.hamdardhaath.org/api/cases/${caseId}`, {
+      const response = await fetch(`https://app.hamdardhaath.org/api/cases/${caseId}`, {
         method: 'DELETE',
       });
 

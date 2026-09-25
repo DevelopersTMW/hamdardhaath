@@ -45,7 +45,7 @@ const DonorDashboard = () => {
   const fetchDashboardData = async () => {
     try {
       // PROFILE
-      const profileRes = await fetch(`https://khidmat.hamdardhaath.org/api/donor/${donorId}/profile`);
+      const profileRes = await fetch(`https://app.hamdardhaath.org/api/donor/${donorId}/profile`);
       const profileData = await profileRes.json();
 
       if (profileData.success) {
@@ -64,7 +64,7 @@ const DonorDashboard = () => {
       }
 
       // DONATIONS
-      const donationsRes = await fetch(`https://khidmat.hamdardhaath.org/api/donor/${donorId}/donations`);
+      const donationsRes = await fetch(`https://app.hamdardhaath.org/api/donor/${donorId}/donations`);
       const donationsData = await donationsRes.json();
 
       if (donationsData.success) {
@@ -79,7 +79,7 @@ const DonorDashboard = () => {
       }
 
       // SUMMARY
-      const summaryRes = await fetch(`https://khidmat.hamdardhaath.org/api/donor/${donorId}/summary`);
+      const summaryRes = await fetch(`https://app.hamdardhaath.org/api/donor/${donorId}/summary`);
       const summaryData = await summaryRes.json();
 
       if (summaryData.success) {

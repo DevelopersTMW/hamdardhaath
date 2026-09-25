@@ -28,7 +28,7 @@ export default function VolunteerLogin() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://khidmat.hamdardhaath.org/api/volunteer/login", {
+      const res = await fetch("https://app.hamdardhaath.org/api/volunteer/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

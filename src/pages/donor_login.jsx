@@ -27,7 +27,8 @@ export default function Login() {
     setLoading(true)
 
     try {
-      const res = await fetch("https://khidmat.hamdardhaath.org/api/donor/login", {
+      // ✅ Updated API URL to point to your live cPanel backend
+      const res = await fetch("https://app.hamdardhaath.org/api/donor/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -43,11 +44,11 @@ export default function Login() {
         return
       }
 
-      // ✅ TEMP: store donor info (simple auth)
+      // ✅ Store donor info (simple auth)
       localStorage.setItem("donor", JSON.stringify(data.donor))
 
-      // ✅ Redirect after successful login
-      navigate("/DonorDashboard")
+      // ✅ Redirect to Homepage (/landing) after successful login
+      navigate("/landing")
 
     } catch (err) {
       console.error(err)
@@ -58,7 +59,7 @@ export default function Login() {
   }
 
   return (
-    <div className="page">
+    <div className="donor-login-page">
       <Header />
 
       <main className="login-main">
