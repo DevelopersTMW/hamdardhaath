@@ -88,7 +88,7 @@ const DonationForm = () => {
 
     // 4️⃣ Handle response
     if (data.success) {
-      setShowModal(true)   // ✅ REAL success now
+      setShowModal(true)   // REAL success now
     } else {
       alert(data.error || data.message || "Registration failed");
     }
